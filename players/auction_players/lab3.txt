@@ -1,0 +1,5 @@
+1.select office,eid,concat(salary," ",currency_code) as salary from employee,currency_table where employee.office=currency_table.location;
+2.select eid,fname,lname from employee d where (select count(*) from employee e where e.fname=d.fname)>1;
+3.select 0.05*salary as deduction,.95*salary+Bonus as final_salary from employee;
+4.select * from employee order by salary desc,lname;
+5.select Dno from employee where Bonus>0 group by Dno having count(*)>1;

@@ -1,0 +1,8 @@
+1.select employe.name, employe.street, employe.city from employe, works where employe.name=works.name and works.s = 'SBI' and sa > 10000;
+2.select e.name from employe e, works w, company c where e.name = w.name and e.city = c.city and w.name = c.name;
+3.select p.name from employe p, employe r, manages m where p.name = m.employee_name and m.manager_name=r.name and p.street = r.street and p.city = r.city;
+4.select name from works where s <> 'SBI';
+5.select name from works where sa > all (select sa from works where s = 'SBI');
+6.select s.name from company s where not exists (select city from company where name = 'ICICI' and city not in(select city from company t where s.name = t.name)) and s.name!='ICICI';
+7.select name from works t where sa >(select avg(sa) from works s where t.s = s.s);
+8.select s as company from works group by s having sum(sa) <= all (select sum(salary) from works group by s);
